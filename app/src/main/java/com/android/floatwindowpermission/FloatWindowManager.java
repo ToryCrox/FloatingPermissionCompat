@@ -75,7 +75,7 @@ public class FloatWindowManager {
                 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
-        params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        params.type = WindowManager.LayoutParams.TYPE_PHONE;
         params.format = PixelFormat.RGBA_8888;
         params.gravity = Gravity.LEFT | Gravity.TOP;
         params.x = screenWidth - dp2px(context, 100);

@@ -144,4 +144,9 @@ public class Utils {
         return context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY).size() > 0;
     }
 
+    public static boolean isOppoRom() {
+        //https://github.com/zhaozepeng/FloatWindowPermission/pull/26
+        return Build.MANUFACTURER.contains("OPPO") || Build.MANUFACTURER.contains("oppo");
+    }
+
 }

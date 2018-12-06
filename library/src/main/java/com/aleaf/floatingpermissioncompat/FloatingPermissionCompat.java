@@ -12,6 +12,7 @@ import com.aleaf.floatingpermissioncompat.impl.BelowApi23CompatImpl;
 import com.aleaf.floatingpermissioncompat.impl.HuaweiCompatImpl;
 import com.aleaf.floatingpermissioncompat.impl.MeizuCompatImpl;
 import com.aleaf.floatingpermissioncompat.impl.MiuiCompatImpl;
+import com.aleaf.floatingpermissioncompat.impl.OppoCompatImpl;
 import com.aleaf.floatingpermissioncompat.impl.QihooCompatImpl;
 
 import java.lang.reflect.Method;
@@ -41,6 +42,8 @@ public class FloatingPermissionCompat {
                 compat = new HuaweiCompatImpl();
             } else if (Utils.isQihoo()) {
                 compat = new QihooCompatImpl();
+            } else if (Utils.isOppoRom()){
+                compat = new OppoCompatImpl();
             } else {
                 // Android6.0以下未兼容机型默认实现
                 compat = new BelowApi23CompatImpl() {

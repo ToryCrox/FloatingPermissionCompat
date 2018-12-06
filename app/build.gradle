@@ -3,13 +3,23 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion configs.compileSdkVersion
 
+    signingConfigs {
+        release {
+            storeFile file("fwc.jks")
+            storePassword '123456'
+            keyAlias 'fwc'
+            keyPassword '123456'
+        }
+    }
+
     defaultConfig {
         applicationId "com.android.floatwindowpermission"
         minSdkVersion 14
         targetSdkVersion configs.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
     buildTypes {
         release {

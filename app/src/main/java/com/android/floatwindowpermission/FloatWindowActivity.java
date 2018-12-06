@@ -8,7 +8,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import com.linchaolong.android.floatingpermissioncompat.FloatingPermissionCompat;
+
+import com.aleaf.floatingpermissioncompat.FloatingPermissionCompat;
 
 /**
  * Description:

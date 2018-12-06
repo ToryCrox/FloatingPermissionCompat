@@ -1,8 +1,10 @@
-package com.linchaolong.android.floatingpermissioncompat.impl;
+package com.aleaf.floatingpermissioncompat.impl;
 
 import android.content.Context;
 import android.os.Build;
-import com.linchaolong.android.floatingpermissioncompat.FloatingPermissionCompat;
+
+import com.aleaf.floatingpermissioncompat.FloatingPermissionCompat;
+
 
 /**
  * Android 6.0 以下的通用实现基类

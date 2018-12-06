@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2016 Facishare Technology Co., Ltd. All Rights Reserved.
  */
-package com.linchaolong.android.floatingpermissioncompat;
+package com.aleaf.floatingpermissioncompat;
 
 import android.content.Context;
 import android.content.Intent;

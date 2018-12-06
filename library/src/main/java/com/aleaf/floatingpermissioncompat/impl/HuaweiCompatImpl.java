@@ -1,11 +1,12 @@
-package com.linchaolong.android.floatingpermissioncompat.impl;
+package com.aleaf.floatingpermissioncompat.impl;
 
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import com.linchaolong.android.floatingpermissioncompat.Utils;
+
+import com.aleaf.floatingpermissioncompat.Utils;
 
 /**
  * 华为悬浮窗权限兼容实现

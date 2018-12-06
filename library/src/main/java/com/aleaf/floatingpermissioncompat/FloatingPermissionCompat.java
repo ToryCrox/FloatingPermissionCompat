@@ -1,4 +1,4 @@
-package com.linchaolong.android.floatingpermissioncompat;
+package com.aleaf.floatingpermissioncompat;
 
 import android.annotation.TargetApi;
 import android.app.AppOpsManager;
@@ -6,12 +6,14 @@ import android.content.Context;
 import android.os.Binder;
 import android.os.Build;
 import android.util.Log;
-import com.linchaolong.android.floatingpermissioncompat.impl.Api23CompatImpl;
-import com.linchaolong.android.floatingpermissioncompat.impl.BelowApi23CompatImpl;
-import com.linchaolong.android.floatingpermissioncompat.impl.HuaweiCompatImpl;
-import com.linchaolong.android.floatingpermissioncompat.impl.MeizuCompatImpl;
-import com.linchaolong.android.floatingpermissioncompat.impl.MiuiCompatImpl;
-import com.linchaolong.android.floatingpermissioncompat.impl.QihooCompatImpl;
+
+import com.aleaf.floatingpermissioncompat.impl.Api23CompatImpl;
+import com.aleaf.floatingpermissioncompat.impl.BelowApi23CompatImpl;
+import com.aleaf.floatingpermissioncompat.impl.HuaweiCompatImpl;
+import com.aleaf.floatingpermissioncompat.impl.MeizuCompatImpl;
+import com.aleaf.floatingpermissioncompat.impl.MiuiCompatImpl;
+import com.aleaf.floatingpermissioncompat.impl.QihooCompatImpl;
+
 import java.lang.reflect.Method;
 
 /**

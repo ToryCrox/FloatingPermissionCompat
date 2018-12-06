@@ -1,4 +1,4 @@
-package com.linchaolong.android.floatingpermissioncompat.impl;
+package com.aleaf.floatingpermissioncompat.impl;
 
 import android.content.Context;
 import android.content.Intent;

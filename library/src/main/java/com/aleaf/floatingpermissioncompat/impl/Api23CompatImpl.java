@@ -1,4 +1,4 @@
-package com.linchaolong.android.floatingpermissioncompat.impl;
+package com.aleaf.floatingpermissioncompat.impl;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
-import com.linchaolong.android.floatingpermissioncompat.FloatingPermissionCompat;
+
+import com.aleaf.floatingpermissioncompat.FloatingPermissionCompat;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 

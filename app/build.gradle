@@ -1,15 +1,12 @@
-/*
- * Copyright (C) 2016 Facishare Technology Co., Ltd. All Rights Reserved.
- */
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    compileSdkVersion configs.compileSdkVersion
+
     defaultConfig {
         applicationId "com.android.floatwindowpermission"
-        minSdkVersion 13
-        targetSdkVersion 25
+        minSdkVersion 14
+        targetSdkVersion configs.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -23,12 +20,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    testImplementation 'junit:junit:4.12'
+    implementation libraries.appcompat
 //    compile 'com.linchaolong.android:floatingpermissioncompat:1.0'
-    compile project(':library')
+    implementation project(':library')
 }

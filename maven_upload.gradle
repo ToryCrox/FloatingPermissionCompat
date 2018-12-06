@@ -1,43 +1,32 @@
 apply plugin: "maven"
 apply from: "$project.rootDir/config.gradle"
 
-// 指定编码
-//tasks.withType(JavaCompile) {
-//    options.encoding = "UTF-8"
-//}
-
 // 打包源码
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
 
-//task javadoc(type: Javadoc) {
-//    failOnError  false
-//    source = android.sourceSets.main.java.sourceFiles
-//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//    classpath += configurations.compile
-//}
-
-// 制作文档(Javadoc)
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
-
 artifacts {
     archives sourcesJar
     //archives javadocJar
 }
 
-def localUrl = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-def uploadUrl = POM_UP_MODE == "2" ? localUrl : (POM_UP_MODE == "0" ? POM_URL : POM_URL_DEV)
+Properties properties = new Properties()
+File localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    properties.load(localPropertiesFile.newDataInputStream())
+}
+// 用户名
+def mavenUser = properties.getProperty("maven.user")
+def mavenPass = properties.getProperty("maven.pass")
+def uploadUrl = properties.getProperty("maven.url")
 uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: uri(uploadUrl)){
                 //配置账号密码
-                authentication(userName: POM_USER_NAME, password: POM_USER_PASS)
+                authentication(userName: mavenUser, password: mavenPass)
             }
             android.libraryVariants.all { variant ->
                 def isRelease = variant.buildType.name == "release"

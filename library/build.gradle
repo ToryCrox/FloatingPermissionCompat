@@ -33,3 +33,4 @@ dependencies {
 
 
 apply from: "$project.rootDir/bintray_publish.gradle"
+apply from: "$project.rootDir/maven_upload.gradle"

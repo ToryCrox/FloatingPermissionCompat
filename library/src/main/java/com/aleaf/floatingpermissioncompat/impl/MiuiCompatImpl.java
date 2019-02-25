@@ -25,7 +25,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
 
     @Override
     public boolean isSupported() {
-        return miuiVersion >= 5 && miuiVersion <= 8;
+        return miuiVersion >= 5;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
             return applyV6(context);
         } else if (miuiVersion == 7) {
             return applyV7(context);
-        } else if (miuiVersion == 8) {
+        } else if (miuiVersion >= 8) {
             return applyV8(context);
         } else {
             Log.e(TAG, "this is a special MIUI rom version, its version code " + miuiVersion);
@@ -130,23 +130,6 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
             Log.e(TAG, "applyV5 intent is not available!");
         }
         return false;
-        //设置页面在应用详情页面
-        //Intent intent = new Intent("miui.intent.action.APP_PERM_EDITOR");
-        //PackageInfo pInfo = null;
-        //try {
-        //    pInfo = context.getPackageManager().getPackageInfo
-        //            (HostInterfaceManager.getHostInterface().getApp().getPackageName(), 0);
-        //} catch (PackageManager.NameNotFoundException e) {
-        //    AVLogUtils.e(TAG, e.getMessage());
-        //}
-        //intent.setClassName("com.android.settings", "com.miui.securitycenter.permission.AppPermissionsEditor");
-        //intent.putExtra("extra_package_uid", pInfo.applicationInfo.uid);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //if (isIntentAvailable(intent, context)) {
-        //    context.startActivity(intent);
-        //} else {
-        //    AVLogUtils.e(TAG, "Intent is not available!");
-        //}
     }
 
 }

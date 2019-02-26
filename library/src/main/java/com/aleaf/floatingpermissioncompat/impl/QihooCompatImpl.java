@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.aleaf.floatingpermissioncompat.Utils;
+import com.aleaf.floatingpermissioncompat.RomUtils;
 
 
 /**
@@ -26,12 +26,12 @@ public class QihooCompatImpl extends BelowApi23CompatImpl {
         Intent intent = new Intent();
         intent.setClassName("com.android.settings", "com.android.settings.Settings$OverlaySettingsActivity");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Utils.isIntentAvailable(context, intent)) {
+        if (RomUtils.isIntentAvailable(context, intent)) {
             context.startActivity(intent);
             return true;
         } else {
             intent.setClassName("com.qihoo360.mobilesafe", "com.qihoo360.mobilesafe.ui.index.appEnterActivity");
-            if (Utils.isIntentAvailable(context, intent)) {
+            if (RomUtils.isIntentAvailable(context, intent)) {
                 context.startActivity(intent);
                 return true;
             } else {

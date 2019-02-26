@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.aleaf.floatingpermissioncompat.Utils;
+import com.aleaf.floatingpermissioncompat.RomUtils;
 
 /**
  * 华为悬浮窗权限兼容实现
@@ -32,7 +32,7 @@ public class HuaweiCompatImpl extends BelowApi23CompatImpl {
             // "com.huawei.permissionmanager.ui.SingleAppActivity");//华为权限管理，跳转到指定app的权限管理位置需要华为接口权限，未解决
             ComponentName comp = new ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.addviewmonitor.AddViewMonitorActivity");//悬浮窗管理页面
             intent.setComponent(comp);
-            if (Utils.getEmuiVersion() == 3.1) {
+            if (RomUtils.getEmuiVersion() == 3.1) {
                 //emui 3.1 的适配
                 context.startActivity(intent);
             } else {

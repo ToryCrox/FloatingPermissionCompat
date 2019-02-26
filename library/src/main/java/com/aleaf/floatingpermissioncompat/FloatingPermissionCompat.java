@@ -14,6 +14,7 @@ import com.aleaf.floatingpermissioncompat.impl.MeizuCompatImpl;
 import com.aleaf.floatingpermissioncompat.impl.MiuiCompatImpl;
 import com.aleaf.floatingpermissioncompat.impl.OppoCompatImpl;
 import com.aleaf.floatingpermissioncompat.impl.QihooCompatImpl;
+import com.aleaf.floatingpermissioncompat.impl.VivoCompatImpl;
 
 import java.lang.reflect.Method;
 
@@ -34,16 +35,18 @@ public class FloatingPermissionCompat {
     private FloatingPermissionCompat() {
         // 6.0 以下的处理
         if (Build.VERSION.SDK_INT < 23) {
-            if (Utils.isMiui()) {
+            if (RomUtils.isMiui()) {
                 compat = new MiuiCompatImpl();
-            } else if (Utils.isMeizu()) {
+            } else if (RomUtils.isMeizu()) {
                 compat = new MeizuCompatImpl();
-            } else if (Utils.isHuawei()) {
+            } else if (RomUtils.isHuawei()) {
                 compat = new HuaweiCompatImpl();
-            } else if (Utils.isQihoo()) {
+            } else if (RomUtils.isQihoo()) {
                 compat = new QihooCompatImpl();
-            } else if (Utils.isOppoRom()){
+            } else if (RomUtils.isOppoRom()){
                 compat = new OppoCompatImpl();
+            } else if (RomUtils.isVivo()){
+                compat = new VivoCompatImpl();
             } else {
                 // Android6.0以下未兼容机型默认实现
                 compat = new BelowApi23CompatImpl() {
@@ -60,8 +63,10 @@ public class FloatingPermissionCompat {
             }
         } else {
             // 最新发现魅族6.0的系统这种方式不好用，天杀的，只有你是奇葩，没办法，单独适配一下
-            if (Utils.isMeizu()) {
+            if (RomUtils.isMeizu()) {
                 compat = new MeizuCompatImpl();
+            } else if (RomUtils.isVivo()){
+                compat = new VivoCompatImpl();
             } else {
                 // 6.0 版本之后由于 google 增加了对悬浮窗权限的管理，所以方式就统一了
                 compat = new Api23CompatImpl();

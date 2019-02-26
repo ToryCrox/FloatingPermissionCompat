@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.util.Log;
 
-import com.aleaf.floatingpermissioncompat.Utils;
+import com.aleaf.floatingpermissioncompat.RomUtils;
 
 
 /**
@@ -20,7 +20,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
     private int miuiVersion = -1;
 
     public MiuiCompatImpl() {
-        miuiVersion = Utils.getMiuiVersion();
+        miuiVersion = RomUtils.getMiuiVersion();
     }
 
     @Override
@@ -54,7 +54,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
         intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
         intent.putExtra("extra_pkgname", context.getPackageName());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Utils.isIntentAvailable(context, intent)) {
+        if (RomUtils.isIntentAvailable(context, intent)) {
             context.startActivity(intent);
             return true;
         }
@@ -63,7 +63,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
         intent.setPackage("com.miui.securitycenter");
         intent.putExtra("extra_pkgname", context.getPackageName());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Utils.isIntentAvailable(context, intent)) {
+        if (RomUtils.isIntentAvailable(context, intent)) {
             context.startActivity(intent);
             return true;
         } else {
@@ -83,7 +83,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
         intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
         intent.putExtra("extra_pkgname", context.getPackageName());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Utils.isIntentAvailable(context, intent)) {
+        if (RomUtils.isIntentAvailable(context, intent)) {
             context.startActivity(intent);
             return true;
         } else {
@@ -102,7 +102,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
         intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
         intent.putExtra("extra_pkgname", context.getPackageName());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Utils.isIntentAvailable(context, intent)) {
+        if (RomUtils.isIntentAvailable(context, intent)) {
             context.startActivity(intent);
             return true;
         } else {
@@ -123,7 +123,7 @@ public class MiuiCompatImpl extends BelowApi23CompatImpl {
         Uri uri = Uri.fromParts("package", packageName, null);
         intent.setData(uri);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Utils.isIntentAvailable(context, intent)) {
+        if (RomUtils.isIntentAvailable(context, intent)) {
             context.startActivity(intent);
             return true;
         } else {

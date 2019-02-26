@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
  * @author zhaozp
  * @since 2016-05-23
  */
-public class Utils {
+public class RomUtils {
 
     private static final String TAG = "Utils";
 
@@ -71,7 +71,7 @@ public class Utils {
             line = input.readLine();
             input.close();
         } catch (IOException ex) {
-            Log.e(TAG, "Unable to read sysprop " + propName, ex);
+            Log.e(TAG, "Unable to read sys prop " + propName, ex);
             return null;
         } finally {
             if (input != null) {
@@ -147,6 +147,15 @@ public class Utils {
     public static boolean isOppoRom() {
         //https://github.com/zhaozepeng/FloatWindowPermission/pull/26
         return Build.MANUFACTURER.contains("OPPO") || Build.MANUFACTURER.contains("oppo");
+    }
+
+    /**
+     * 是否是vivo系统
+     * @return
+     */
+    public static boolean isVivo() {
+        String vivoVersion = getSystemProperty("ro.vivo.os.version");
+        return !TextUtils.isEmpty(vivoVersion);
     }
 
 }

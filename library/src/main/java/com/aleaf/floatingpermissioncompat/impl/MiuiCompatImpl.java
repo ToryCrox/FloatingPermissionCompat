@@ -17,29 +17,29 @@ import com.aleaf.floatingpermissioncompat.RomUtils;
 public class MiuiCompatImpl extends BelowApi23CompatImpl {
 
     private static final String TAG = "MiuiCompatImpl";
-    private int miuiVersion = -1;
+    private int mMiuiVersion = -1;
 
     public MiuiCompatImpl() {
-        miuiVersion = RomUtils.getMiuiVersion();
+        mMiuiVersion = RomUtils.getMiuiVersion();
     }
 
     @Override
     public boolean isSupported() {
-        return miuiVersion >= 5;
+        return mMiuiVersion >= 5;
     }
 
     @Override
     public boolean apply(Context context) {
-        if (miuiVersion == 5) {
+        if (mMiuiVersion == 5) {
             return applyV5(context);
-        } else if (miuiVersion == 6) {
+        } else if (mMiuiVersion == 6) {
             return applyV6(context);
-        } else if (miuiVersion == 7) {
+        } else if (mMiuiVersion == 7) {
             return applyV7(context);
-        } else if (miuiVersion >= 8) {
+        } else if (mMiuiVersion >= 8) {
             return applyV8(context);
         } else {
-            Log.e(TAG, "this is a special MIUI rom version, its version code " + miuiVersion);
+            Log.e(TAG, "this is a special MIUI rom version, its version code " + mMiuiVersion);
         }
         return false;
     }

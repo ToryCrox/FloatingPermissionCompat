@@ -3,6 +3,7 @@ package com.aleaf.floatingpermissioncompat.impl;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 /**
  * @author tory
@@ -10,7 +11,7 @@ import android.content.Intent;
  * @des:
  */
 public class OppoCompatImpl extends BelowApi23CompatImpl {
-
+    private static final String TAG = "OppoCompatImpl";
 
     @Override
     public boolean isSupported() {
@@ -27,10 +28,10 @@ public class OppoCompatImpl extends BelowApi23CompatImpl {
             ComponentName comp = new ComponentName("com.coloros.safecenter", "com.coloros.safecenter.sysfloatwindow.FloatWindowListActivity");//悬浮窗管理页面
             intent.setComponent(comp);
             context.startActivity(intent);
+            return true;
+        } catch(Exception e){
+            Log.e(TAG, "apply error", e);
+            return false;
         }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        return false;
     }
 }

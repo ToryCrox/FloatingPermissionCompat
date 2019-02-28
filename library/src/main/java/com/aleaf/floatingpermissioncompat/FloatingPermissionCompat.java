@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
  */
 public class FloatingPermissionCompat {
 
-    private static final String TAG = "FloatPermissionCompat";
+    public static final String TAG = "FloatPermissionCompat";
 
     private static FloatingPermissionCompat sInstance;
     private CompatImpl compat;
